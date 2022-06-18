@@ -11,17 +11,24 @@
 #include "List.h"
 
 template <typename T>
-const T & List<T>::operator[](unsigned index) {
+const T & List<T>::operator[](unsigned index) {  // retrieves index into the loop
   // Start a `thru` pointer to advance thru the list:
   ListNode *thru = head_;
 
   // Loop until the end of the list (or until a `nullptr`):
+  // thru pointer goes to next element with each loop
+  // means thru no longer points to its first, but its second node 
+  // after the first loop
   while (index > 0 && thru->next != nullptr) {
+    // input index you're trying to find ([4])
     thru = thru->next;
-    index--;
+    index--;    // decrement index so loop has an end 
+    // index is decrementing, but thru pointer is moving up indexes
+    //until it gets to the one we want, [4]
   }  
 
-  // Return the data:
+  // Return the data that the thru pointer eventually lands on
+  // aka the data at our desired index
   return thru->data;
 }
 
@@ -35,7 +42,7 @@ void List<T>::insertAtFront(const T & data) {
   // head of the List:
   node->next = head_;
 
-  // Set the List’s head pointer to be the new node:
+  // Update the List’s head pointer to be the new node:
   head_ = node;
 }
 

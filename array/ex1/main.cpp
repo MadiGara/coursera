@@ -12,7 +12,7 @@ int main() {
   int values[10] = { 2, 3, 5, 7, 11, 13, 15, 17, 21, 23 };
    
   // Outputs the 4th (index 3) prime:
-  std::cout << values[3] << std::endl;
+  std::cout << values[3] << std::endl; //should print 7
 
   return 0;
 }

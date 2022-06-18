@@ -14,11 +14,13 @@
 
 #pragma once
 
-template <typename T>
+template <typename T>   //templated class
 class List {
   public:
     const T & operator[](unsigned index);
-    void insertAtFront(const T & data);
+    // & operator[] lets us access a list l
+    // l[0] will call the above function, const T & operator[] (unsigned index)
+    void insertAtFront(const T & data); //lets us insert elements into list
 
     // We define this constructor to make sure that head_ is null-initialized.
     List() : head_(nullptr) { }
@@ -47,8 +49,8 @@ class List {
   private:
     class ListNode {
       public:
-        const T & data;
-        ListNode *next;
+        const T & data;    // the data
+        ListNode *next;    // the link
         ListNode(const T & data) : data(data), next(nullptr) { }
     };
 
